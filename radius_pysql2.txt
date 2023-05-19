@@ -1,0 +1,8 @@
+declare
+radius number;
+area number;
+begin
+radius:=&radius;
+area:=3.14*radius*radius;
+dbms_output.put_line('Area of circle' || area);
+end;

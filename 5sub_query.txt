@@ -1,0 +1,21 @@
+1.Find all information of sailors who have reserved boat number 101.
+MYSQL>>select * from sailors where sid in (select sid from reserves where bid = 101);
+2.Find the name of boat reserved by Bob.
+MYSQL>>select bname from boats where bid in (select bid from reserves where sid in (select sid from sailors where sname = 'Bob'));
+3.Find the names of sailors who have reserved a red boat, and list in the order of age.
+MYSQL>> select sname from sailors where sid in (select sid from reserves where bid in (select bid from boats where color = 'Red')) order by age;
+4.Find the names of sailors who have reserved  at least  one boat.
+MYSQL>>select sname from sailors where sid in (select sid from reserves where bid in (select bid from reserves group by bid having count (bid) > 1));
+5.Find ids  and names of sailors who have reserved two different boats on the same day.
+MYSQL>>select sid,sname from sailors where sid in (select sid from reserves where day in (select day from reserves group by day having count(*)>1));
+6.Find the ids of sailors who have reserved a red boat or a green boat.
+MYSQL>>select sid from reserves where bid in (select bid from where color in ('red','green')) group by sid;
+7.Find the name and the age of the youngest sailor.
+MYSQL>>select sname,age from sailors where age = (select min(age) from sailors);
+8.Count the number of different sailor names.
+MYSQL>> select sname,count (sname) from sailors group by sname;
+9.Find the  average age of sailors from each rating level.
+MYSQL>>select rating,avg(age) from sailors group by rating;
+10.Find the average age of sailors for each rating level that has at least two sailors.
+MYSQL>>Select avg(age),rating from sailors group by rating having count(sname > 1);
+

@@ -1,0 +1,42 @@
+1) add pk-->  create table emp(id integer(10), primary key(id));
+	---> alter table emp add primary key pri_key(id);
+2) mult_pk--> alter table emp add primary key(id,name); 
+3)remove_ pk--> alter table emp dropp primary key;
+
+4)add_fk--> alter table emp add foreign key(d_id) references dept(d_no);
+5) remove_fk-->alter table emp drop foreign key d_id;
+
+6)modify_col_datatype---> alter table emp modify column e-id varchar(10);
+7)col_rename---> alter table emp change column salary sal varchar(10);
+
+8)add_column--> alter table emp add column phone int(11) after/first name;
+9)update_data--> update emp set ename='hy' where eid=6;
+10)update_mul_data---> update ename set ename='hey' , eno.=10 where eid=6;
+
+11)table_drop--> drop table emp; 
+      column---> alter table emp drop column sal;
+      row--------> delete from emp where eid=4;
+     del----> delete from emp;
+     trunc----->  truncate table emp;
+
+12) rename_table---> rename emp to dept;
+13)insert---> insert into emp(eno, ename) values(1, 'hey');
+14) sort----> select * from emp order by salary asc/desc;
+
+15)min, max,avg,sum,count----> select min(salary) from emp;
+		--------->select min(salary) as min_sal from emp;
+       sel_col & all_row------->select col1,col2 from emp;
+      sel_row and all_col------> select *from emp where eid=5;
+     sel_row and col-------> select col1 , col2 from emp where epost='manager';
+
+16) check-----> create table emp(eno int(3), class char(10)), check (class in('cse', 'eee');
+	---->create table emp(eno int (3) check (eno >100);
+
+17)default----> create table emp(eno int(3) unique, ename varchar(10) default 'hy');
+
+18) s%----> sipple)-->select ename from emp where ename like 's%';
+      %a----> sippla)
+      'h%'---->  select substr(ename, 1, 5),ename from emp where ename like'h%';
+     'n__l%'---> select * from emp where name like 'n__l%';
+
+19)inner join---->  select * from emp inner join reserves where bid=101;

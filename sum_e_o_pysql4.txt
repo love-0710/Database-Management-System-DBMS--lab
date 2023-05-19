@@ -1,0 +1,18 @@
+declare
+i number:=1;
+se number:=0;
+so number:=0;
+m number;
+begin
+while i<=200 loop
+m:=MOD(i, 2);
+if (m=0) then
+se:=se+i;
+else
+so:=so+i;
+end if;
+i:=i+1;
+end loop;
+dbms_output.put_line('Sum of 100 even no.=' || se);
+dbms_output.put_line('Sum of 100 odd no.=' || so);
+end;

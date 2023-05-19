@@ -1,0 +1,8 @@
+use mydb
+db.create collection("department");
+db.department.insertMany([
+{ dept_id:1, dept_name:"sales", manager_id:100, location:"kolkata"},{    },{...} ]);
+---> db.department.find({location:'kolkata"}, {dept_name:1, _id:0});
+----> db.department.find().sort({dept_id:1});
+----> db.department.find({$or:[{location:"kolkata"},{location:"delhi"}]};
+----> db.department.updateone({manager_id:100}, {$set : {dept_name:"finance"}})

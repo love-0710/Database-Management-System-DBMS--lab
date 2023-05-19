@@ -1,0 +1,45 @@
+Create a table Salesmen with following schema:
+(salesman id, name, city , age, commission)
+
+Write SQL statem ents for the following query.
+
+create table salesman(name varchar(30),salesman_id int(20),city varchar(30),age int(20),commision int(20));
+
+insert into salesman values('chris',3005,'Rome',21,240);
+
+1. Filter those salesmen with all information who comes from any of the cities Paris and Rome.
+>>Select * from salesman where city = 'Paris' and city = 'Rome';
+
+2. Make a list of salesman_id, name, city and commission of each salesman who live in cities other than Paris and Rome.
+>>Select Salesmen_id, Name, City, commision from Salesman where city != 'Paris' and city != 'Rome';
+
+3. Write a SQL statement to find those salesmen wvith all information who gets the commission within a range of 100 and 500.
+>>select * from salesman where commision between 100 and 500;
+
+4. Write a query to sort out those salesmen with all information whose 1D value is within any of 3007, 3008 and 3009.
+>>select * from salesman where salesman_id in (3007,3008,3009);
+
+5. Write a SQL statement to find those salesmen with all other information and name started with any letter within 'A' and 'K'.
+>> select * from SAlesman where name between '%a' and 'k%';
+
+6. Write a SQL statement to find that salesman with all information whose name begins with the letter 'B'.
+>> select * from salesman where name like 'b%';
+
+7. Write a SQL statement to find all those salesmen with all information whose names are ending with the letter 'n'.
+>> seelct * from salesman where name like '%n'.
+
+8. Write a SQL statement to find those salesmen with all information whose name containing the 1st 
+   character is 'N' and the 4th character is 'T and rests may be any character.
+>>select * from salesman where name like 'n--l%'.
+
+9. Display the salesman details in ascending order of his age
+>>select * from salesman order by age asc;
+
+10. Display names of salesman containing two a's in his name.
+>>select * from salesman where name like '%a %a';
+
+11.Display the count of salesman within the age group 25 to 35.
+>>select * from salesman where age between 25 and 35;
+
+12. Display the total number of salesman staying in each city
+>>select city,count(*) from salesman group by city;

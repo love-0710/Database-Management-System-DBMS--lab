@@ -1,0 +1,8 @@
+1)create table emp(empno int(20) primary key check(empno>100),ename varchar(30)not null,job varchar(20)not null,deptno int(10) unique,sal float(7,4));
+2)describe emp;
+3)insert into emp values(101,'John','Manager',1,15000);//multiple entries to be done in same way
+4)Select * from employee;
+5)create table emp1(eno int(10),ename varchar(20),dno int(20),foreign key(eno)references emp(empno));
+6)describe emp1;
+7)insert into emp1 values(101,'Sam',2);//multiple entries to be done in same way
+select * from employees;

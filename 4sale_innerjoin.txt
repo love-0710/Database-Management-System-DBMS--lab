@@ -1,0 +1,46 @@
+Consider the following schema:
+Sailors (sid, sname, rating, age)
+Boats (bid, bname, color)
+Reserves (sid, bid, day(date))
+
+Create table sailors (sid int(20), sname varchar(25), rating int(10),age int (10));
+
+create table boats (bid int(10),bname varchar(25),color varchar(25));
+
+create table reserves (sid int(20),foreign key(sid) refernces sailors(sid),bid int(20),foreign key(bid) refernces boats(bid) , day date)
+
+
+
+1. Find all information of sailors who have reserved boat number 101.
+>>select * from sailors inner join reserves on sailors.
+   sid = reserves.sid where reserves.bid=101;
+
+2. Find the name of boat reserved by Bob.
+>>select boats.bname from boats innerjoin reserves inner join sailors on boats.bid =
+  reserves.bid and sailors.sid= reserves sid where sailors.sname='bob';
+
+3. Find the names of sailors who have reserved a red boat, and list in the order of age.
+>>select sailors.sname from sailors inner join reserves inner join boats on boats.bid =
+  reserves.bid and sailors.sid=reserves.sid where color='red'order by age;
+
+4. Find the names of sailors who have reserved at least one boat.
+>>select distinct sailors.sname froom sailors inner join reserves on sailors.sid=reserves.sid;
+
+5. Find the ids and names of sailors who have reserved two different boats on the same day.
+>>select sailors.sid,sname from sailors inner join reserves on sailors.sid=reserves.sid group by sailors.sid having count(reserves.sid)>=2;
+
+6. Find the ids of sailors who have reserved a red boat or a green boat.
+>>select sailors.sid,sailors.sname,boats color from sailors inner join reserves inner join boats on sailors.sid=reserves.sid and boats.bid= reserves.bid
+   where color='red' or color='grren';
+
+7. Find the name and the age of the youngest sailor.
+>>select distinct sname,age from sailors where age=(select min(age) from sailors);
+
+8. Count the number of different sailor names.
+>> select sname, count(sname) from sailors group by sname;
+
+9. Find the average age of sailors for each rating level.
+>> select rating,avg(age) from sailors group by rating;
+
+10.Find the average age of sailors for each rating level that has at least two sailors.
+>> select avg(age)rating from sailors group by rating having count (rating)>1.

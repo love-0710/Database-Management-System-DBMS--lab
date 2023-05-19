@@ -1,0 +1,9 @@
+declare
+i number;
+s number:=0;
+begin
+for i in 1..100 loop
+s:=s+i;
+end loop;
+dbms_output.put_line('Sum of 100 numbers=' || s);
+end;

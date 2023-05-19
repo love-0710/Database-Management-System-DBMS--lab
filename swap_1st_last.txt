@@ -1,0 +1,20 @@
+declare
+a:=&a;
+c integer:=0;
+d integer:=0;
+i integer:=0;
+begin
+i:=a;
+while(i>0)loop
+c:=c+1
+i:=i/10
+end loop
+d:=mod(a,10)
+i:=a/pow(10,c-1)
+a:=a/10*10+i
+a:=mod(a,pow(10,c-1))
+d:=d*pow(10,c-1)
+d:=d+a
+dbms_output_line(d)
+end
+/

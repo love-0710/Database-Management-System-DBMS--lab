@@ -1,0 +1,306 @@
+1)create table emp(empno int(20) primary key check(empno>100),ename varchar(30)not null,job varchar(20)not null,deptno int(10) unique,sal float(7,4));
+2)describe emp;
+3)insert into emp values(101,'John','Manager',1,15000);//multiple entries to be done in same way
+4)Select * from employee;
+5)create table emp1(eno int(10),ename varchar(20),dno int(20),foreign key(eno)references emp(empno));
+6)describe emp1;
+7)insert into emp1 values(101,'Sam',2);//multiple entries to be done in same way
+select * from employees;
+
+//////////////PL/SQL////////////////////
+
+//////sum of digits of a number.//////
+
+
+declare
+n number;
+temp_num number;
+r number;
+begin
+n:=&n;
+temp_sum:=0;
+while n<>0 loop
+r:=mod(n,10);
+temp_sum:=temp_sum+r;
+n:=trunc(n//10);
+end loop;
+dbms_output.put_line('Sum of digits='||temp_sum);
+end;
+/
+
+
+//////Reverse digit of a number//////
+
+
+declare
+num number;
+rev number;
+begin
+num:=&num;
+rev:=0;
+while num>0 loop
+rev:=(rev*10)+mod(num,10);
+num:=floor(num/10);
+end loop;
+dbms_output.put_line('Reverse of number='||rev);
+end;
+/
+
+
+
+//////Pallindrome//////
+
+
+
+declare
+s varchar(10);
+l varchar(10);
+t varchar(10);
+begin
+s:=&s;
+for i in reverse 1..length(s)loop
+l:=substr(s,i,l);
+t:= t||''||l;
+end loop;
+if t=s then;
+dbms_output.put_line('t||''||'is pallinmdrome');
+else
+dbms_output.put_line('t||''||'is not a pallinmdrome');
+end if;
+end;
+/
+
+
+
+
+////////Armstrong Number/////////
+
+
+
+declare
+s number(10);
+l number(10);
+t number(10);
+begin
+n:=&n;
+t:=n;
+while t>0 loop
+s:= s+power((t mod 10),3);
+t:=trunc(t/10);
+end loop;
+if(s==n)then
+dbms_output.put_line('The number is an armstrong number');
+dbms_output.put_line('The number is not an armstrong number);
+end;
+/
+
+
+
+///////Raise Salary by 20%///////
+
+
+
+create table empsal(eno number primary key,empname varchar(20),city varchar(20),salary number(10,2));
+insert into empsal values(1,'Siyaram','Jehanabad',26000);
+
+
+////after creating table and inserting some values//////
+
+
+declare
+num number;
+sal number(10,2);
+begin
+n:=&n;
+update empsal set salary= salary+(salary * 0.20) where eno=num;
+select salary into sal from empsal(eno=num);
+dbms_output.put_line('Salary='||sal);
+end;
+/
+
+
+
+/////x^2/2! + x^4/4! + ......... upto n terms////////////
+
+
+
+declare
+i number:=0;
+j number;
+n number;
+f number;
+x number;
+s number:=0;
+begin
+dbms_output.put_line('Enter value of n');
+n:=&n;
+dbms_output.put_line('Enter value of x');
+x:=&x;
+while i<n loop
+	j:=1;
+	f:=1;
+	while j<=i*2 loop
+		f:=f*j;
+		j:=j+1;
+	end loop;
+	s:=s+ power(-1,trunc(i))*(power(x,i*2)/f);
+	i:=i+1;
+end loop;
+dbms_output.put_line(s);
+end;
+/
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//factorial
+
+Declare  
+num   number:= #  
+fact number:= 1;  
+temp number;  
+begin  
+  temp := num;  
+   while (num > 0)
+loop
+    fact := fact * num;  
+    num   := num - 1;  
+end loop;
+  Dbms_Output.Put_line('factorial of ' || temp ||  '  is ' || fact);  
+end;
+/
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+//prime, composite
+
+ declare
+       num number;
+       i number:=1;
+       c number:=0;
+  begin
+        num:=#
+       for i in 1..num
+       loop
+          if((mod(num,i))=0)
+           then
+              c:=c+1;
+         end if;
+      end loop;
+     if(c>2)
+     then
+         dbms_output.put_line(num||' not a prime');
+     else
+        dbms_output.put_line(num||' is prime');
+     end if;
+  end;
+   /
+
+/////////////////////////////////////////////////////////////////////////////////
+
+///fibonacci
+
+declare
+   a number(3):=1;
+   b number(3):=1;
+   c number(3);
+   n number(3):=&n;
+begin
+  Dbms_output.put_line('the fibinocci series is:');
+  while a<=n
+    loop
+        dbms_output.put_line(a);
+        c:=a+b;
+        a:=b;
+        b:=c;
+     end loop;
+  end;
+/
+
+//////////////////////////////////////////////////////////////
+
+//permimeter, area of rect
+
+
+DECLARE LENGTH number:=&LENGTH;
+Width number:=&width;
+Area number;
+Parimeter number;
+BEGIN Area:=LENGTH*width;
+Parimeter:= 2*(LENGTH+width);
+dbms_output.put_line('AREA OF RECTANGLE IS:'||Area);
+dbms_output.put_line('PARIMETER OF RECTANGLE IS:'||PARIMETER);
+END;
+/
+
+
+//////////////////////////////////////////////////////////////
+
+///prime up to 100
+
+set serveroutput on
+declare 
+    i number;
+    prime number;
+    j number;
+begin 
+    for i in 2 .. 1000 loop
+            prime := 0;
+            for j in 2 .. i/2 loop
+            if mod(i,j)=0 then prime := 1;
+            end if;
+        end loop;
+    if prime = 0 then dbms_output.put_line(i||'&');
+    end if;
+    end loop;
+end;
+ /
+
+////////////////////////////////////////////////////////////
+
+// sum of 1st and last no.
+
+DECLARE
+   n INTEGER := 31415;
+   fistDigit INTEGER := 0;
+   lastDigit INTEGER := 0;
+   s INTEGER;
+BEGIN
+   IF a > 9 THEN
+   lastDigit:= Substr(n, 1, 1);
+   fistDigit := Substr(n, Length(n), 1);
+   s := fistDigit + lastDigit;
+   ELSE
+   s := n;
+   END IF;
+dbms_output.Put_line('Sum of the first digit and last digit of the number is ' ||s);
+END;
+/
+
+
+////////////////////////////////////////////////
+
+//count no. of character and word
+
+DECLARE
+      str VARCHAR2(40) := 'Tutorials Point';
+      nchars NUMBER(4) := 0;
+      nwords NUMBER(4) := 1;
+      s CHAR;
+BEGIN
+   FOR i IN 1..Length(str) LOOP
+      s := Substr(str, i, 1);
+      nchars:= nchars+ 1;
+      IF s = ' ' THEN
+      nwords := nwords + 1;
+      END IF;
+END LOOP;
+dbms_output.Put_line('count of characters is:'
+   ||nchars);
+
+dbms_output.Put_line('Count of words are: '
+   ||nwords);
+END;
+/
+
+

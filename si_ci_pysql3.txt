@@ -1,0 +1,15 @@
+declare
+p number(9,2);
+r number(9,2);
+t number(9,2);
+si number(9,2);
+ci number(9,2);
+begin
+p:=&p;
+r:=&r;
+t:=&t;
+si:=(p*r*t)/100;
+ci:=p*power(1+(r/100),t);
+dbms_output.put_line('Simple Interest=' || si);
+dbms_output.put_line('Compound Interest=' || ci);
+end;

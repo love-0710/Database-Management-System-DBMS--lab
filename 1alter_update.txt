@@ -1,0 +1,23 @@
+LAB 1
+Write sql quereies 1.cust_id,cust_name,item_id,item_name,price
+1.Create the tables and insret five records in each table.
+-->create table customers(cust_id integer,cust_name varchar(10));
+-->create table item(item_id integers(26),item_name varchar(12),price integer(12));
+-->insert into customer values(1,"rahul") and all values
+similary put the value in table item
+2.Display the schema of each table?
+-->select * from customers and select * from item;
+3.Change the datatype of price from integer to number?
+--->alter table item modify price float(6,2);
+4.Change the name of column/field item name to I_name?
+--->alter table iten change item_name I_name varchar(30);
+5.Delete the record of customer having cust_id=6?
+--->delete from customer where cust_id=6;
+6.Add a cloumn age in table customer?
+--->alter table customer add (age integer(3));
+7.Rename the attributes price in tables item to cost price?
+--->alter item change price cost price float(6,2);
+8.Add an attribute to table item?
+--->
+9.Update the price of item _4 from 1000 to 2000?
+---> 

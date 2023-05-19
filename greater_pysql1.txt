@@ -1,0 +1,16 @@
+declare
+X number;
+Y number;
+begin
+dbms_output.put_line("enter the 1st no:");
+X:=&x;
+dbms_output.put_line("enter the 2nd no.");
+Y:=&y;
+
+if(x>y)
+then
+dbms_output.put_line('Greater number' || X);
+else
+dbms_output.put_line('Greater number' || Y);
+end if;
+end;
